@@ -1,13 +1,13 @@
 {% set name = "types-editdistance" %}
-{% set version = "0.6.3.5" %}
+{% set version = "0.8.0.20241221" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/types-editdistance-{{ version }}.tar.gz
-  sha256: 91eb5d0d4d07812f6c285d27ecf5cb615896594af8b07dbfacdd890884380ea8
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: c424087935ac06fa67bfd91cbf1fe0b29cd241fdda0393a59f50aa997eb972bb
 
 build:
   noarch: python
