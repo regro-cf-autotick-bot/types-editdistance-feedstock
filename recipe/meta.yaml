@@ -6,24 +6,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/types-editdistance-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/types-editdistance-{{ version }}.tar.gz
   sha256: 91eb5d0d4d07812f6c285d27ecf5cb615896594af8b07dbfacdd890884380ea8
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - test -f $SP_DIR/editdistance-stubs/__init__.pyi  # [unix]
